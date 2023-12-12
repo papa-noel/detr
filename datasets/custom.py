@@ -10,11 +10,11 @@ from .coco import CocoDetection, make_coco_transforms
 def build(image_set, args):
     root = Path(args.coco_path)
     assert root.exists(), f'provided path {root} to custom dataset does not exist'
-    training_json_file = 'custom_train.json'
-    validation_json_file = 'custom_val.json'
+    training_json_file = 'molina_train.json'
+    validation_json_file = 'molina_validate.json'
     PATHS = {
-        "train": (root / "train2017", root / "annotations" / training_json_file),
-        "val": (root / "val2017", root / "annotations" / validation_json_file),
+        "train": ('/content/Capstone-Project/annotations_and_images/images/training_images', '/content/Capstone-Project/annotations_and_images/annotations/molina_train/molina_train.json'),
+        "val": ('/content/Capstone-Project/annotations_and_images/images/validation_images', '/content/Capstone-Project/annotations_and_images/annotations/molina_validate/molina_validate.json'),
     }
 
     img_folder, ann_file = PATHS[image_set]
